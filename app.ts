@@ -33,7 +33,7 @@ window.onload = () => {
         
         var x = e.pageX - drawingCanvas.offsetLeft;
         var y = e.pageY - drawingCanvas.offsetTop;
-        if (x > 0 && y > 0 && x < drawingCanvas.width && y < drawingCanvas.height) {
+        if (x > 0 && y > 0 && x < drawingCanvas.width && y < drawingCanvas.height && img != null) {
             var node = img.findCircle(x, y);
             node.addChildren(Graph.IMG.image, drawingCanvas);
         }

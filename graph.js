@@ -99,17 +99,18 @@ var Graph;
             var i = 1;
             while (file.type != "image/*" && i < files.length) {
                 file = files[i];
+                i++;
             }
             var img = new Image();
             var context = imageCanvas.getContext("2d");
-            img.onload = function () { return function (e) {
+            img.onload = function (e) {
                 var d = 500;
                 context.drawImage(img, 0, 0, d, d * img.height / img.width);
                 IMG.image = new image(imageCanvas, d, d);
                 var r = d / 2;
                 IMG.root = (new circle(r, r, r, IMG.image.getColor(r, r)));
                 IMG.root.draw(drawingCanvas); // this part broke tons of stuff, so use static instead
-            }; };
+            };
             var reader = new FileReader();
             reader.onload = (function (theFile) {
                 return function (e) {

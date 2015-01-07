@@ -120,12 +120,13 @@
             var i = 1;
             while (file.type != "image/*" && i < files.length) {
                 file = files[i];
+                i++;
             }
 
             var img = new Image();
             
             var context = imageCanvas.getContext("2d");
-            img.onload = () => function (e) {
+            img.onload = function (e) {
                 var d = 500;
                 context.drawImage(img, 0, 0, d, d * img.height / img.width);
                 IMG.image = new image(imageCanvas, d, d);
