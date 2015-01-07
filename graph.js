@@ -62,11 +62,11 @@ var Graph;
             }
         };
         circle.prototype.addChildren = function (img, canvas) {
-            this.clear(canvas);
             var r = this.radius / 2;
-            if (r < 1) {
+            if (r < 0.5) {
                 return;
             }
+            this.clear(canvas);
             var topLeft = [this.position_x - r, this.position_y - r];
             this.children = [new circle(topLeft[0], topLeft[1], r, img.getColor(topLeft[0], topLeft[1])), new circle(topLeft[0] + 2 * r, topLeft[1], r, img.getColor(topLeft[0] + 2 * r, topLeft[1])), new circle(topLeft[0], topLeft[1] + 2 * r, r, img.getColor(topLeft[0], topLeft[1] + 2 * r)), new circle(topLeft[0] + 2 * r, topLeft[1] + 2 * r, r, img.getColor(topLeft[0] + 2 * r, topLeft[1] + 2 * r)),];
             this.draw(canvas);
