@@ -118,7 +118,7 @@
             var file = files[0];
 
             var i = 1;
-            while (file.type != "image/*" && i < files.length) {
+            while (file.type.indexOf("image") ==-1 && i < files.length) {
                 file = files[i];
                 i++;
             }
